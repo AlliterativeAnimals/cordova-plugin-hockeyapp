@@ -5,6 +5,7 @@ import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 
 import net.hockeyapp.android.FeedbackManager;
+import net.hockeyapp.android.UpdateManager;
 
 public class HockeyApp extends CordovaPlugin {
 
@@ -33,6 +34,14 @@ public class HockeyApp extends CordovaPlugin {
             else {
                 callbackContext.error("cordova hockeyapp plugin not initialized, call start() first");
                 return false;
+            }
+        } else if(action.equals("versionStart")) {
+            if (initialized) {
+                UpdateManager.register(this, token);
+            }
+        } else if (action.equals("versionStop")) {
+            if (initialized) {
+                UpdateManager.unregister();
             }
         }
         else {
