@@ -38,10 +38,20 @@ public class HockeyApp extends CordovaPlugin {
         } else if(action.equals("versionStart")) {
             if (initialized) {
                 UpdateManager.register(cordova.getActivity(), token);
+                return true;
+            }
+            else {
+                callbackContext.error("cordova hockeyapp plugin not initialized, call start() first");
+                return false;
             }
         } else if (action.equals("versionStop")) {
             if (initialized) {
                 UpdateManager.unregister();
+                return true;
+            }
+            else {
+                callbackContext.error("cordova hockeyapp plugin not initialized, call start() first");
+                return false;
             }
         }
         else {
