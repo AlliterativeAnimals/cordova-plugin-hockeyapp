@@ -6,6 +6,8 @@
 }
 
 - (void)start:(CDVInvokedUrlCommand*)command;
+- (void)updateStart:(CDVInvokedUrlCommand*)command;
+- (void)updateStop:(CDVInvokedUrlCommand*)command;
 - (void)feedback:(CDVInvokedUrlCommand*)command;
 
 @end
